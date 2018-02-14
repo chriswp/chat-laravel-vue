@@ -67,8 +67,11 @@
             @yield('content')
         </main>
     </div>
+    @stack('pre-scripts')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>

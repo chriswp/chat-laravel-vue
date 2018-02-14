@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/chats', 'ChatsController@index')->name('chat');
 Route::get('/chat/{id}', 'ChatsController@show')->name('chat.show');
+
+
+Route::post('/salvar-mensagem', 'MensagensController@createMessage')->name('mensagem.create');

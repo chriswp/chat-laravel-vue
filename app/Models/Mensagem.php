@@ -15,11 +15,18 @@ class Mensagem extends Model implements Transformable
 {
     use TransformableTrait;
 
+    protected $table = 'mensagens';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['mensagem', 'chat_id'];
+
+    public function chat()
+    {
+        return $this->belongsTo(Chat::class);
+    }
 
 }

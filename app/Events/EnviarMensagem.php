@@ -22,7 +22,7 @@ class EnviarMensagem implements ShouldBroadcast
 
     /**
      * EnviarMensagem constructor.
-     * @param User $user
+     * @param Mensagem $mensagem
      */
     public function __construct(Mensagem $mensagem)
     {

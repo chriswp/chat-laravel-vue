@@ -1,26 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <style type="text/css">
-        .chat {
-            padding: 0;
-        }
-        .chat li {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-        }
-        .chat li.left .chat-body {
-            margin-left: 100px;
-        }
-        .chat li.right .chat-body {
-            text-align: right;
-            margin-right: 100px;
-        }
-        .card-block {
-            overflow-y: scroll;
-            height: 400px !important;
-        }
-    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-2">
@@ -50,10 +30,13 @@
                     </div>
                     <div class="card-footer">
                         <div class="input-group">
-                            <input type="text" class="form-control input-md"
-                                   placeholder="Digite sua mensagem"/>
+                            <input type="text" class="form-control input-md" v-model="mensagem"
+                                   v-on:keyup.enter="enviarMensagem" placeholder="Digite sua mensagem"/>
+                            <input type="hidden" name="chat_id" value="{{$chat->id}}">
                             <span class="input-group-btn">
-                                <button class="btn btn-success btn-md">Enviar</button>
+                                <button class="btn btn-success btn-md" v-on:click="enviarMensagem">
+                                    Enviar
+                                </button>
                             </span>
                         </div>
                     </div>
@@ -62,3 +45,9 @@
         </div>
     </div>
 @endsection
+
+@push('pre-scripts')
+    <script>
+        var chatId = "{{ $chat->id }}";
+    </script>
+@endpush
